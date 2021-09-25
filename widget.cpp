@@ -34,7 +34,9 @@ void Widget::mousePressEvent(QMouseEvent *pressEvent)
         m_startY = pressEvent->pos().ry();
         m_rectWidth = pressEvent->pos().rx() - m_startX;
         m_rectHeight = pressEvent->pos().ry() - m_startY;
-        update();
+        // 测试局部刷新，有效
+        QRegion rect(600,300,200,180);
+        update(rect);
     }
 }
 
